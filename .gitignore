@@ -1,0 +1,49 @@
+package seats;
+import java.util.Scanner;
+import java.util.Random; 
+
+public class Seats
+{
+   public static void main(String[] args)
+	{
+                Scanner scan = new Scanner(System.in);
+                int input1=0;
+                int input2=0;
+		int Seat_price [][]=new int [10][10];
+                Random randnum= new Random ();
+                for(int i=0;i<10;i++)
+                {
+                    for(int j=0;j<10;j++)
+                    {
+                       Seat_price[i][j]=randnum.nextInt(80)+1;
+                    }
+                }
+                System.out.println("Input a row and the colume that you want");
+                System.out.println("Input 101 to quit the program.");
+                while(input1!=101)
+                {
+                    input1=scan.nextInt();
+                    if(input1==101)
+                    {
+                        break;
+                    }
+                    input2=scan.nextInt();
+                    System.out.println("The price of the seat you choice is:"+Seat_price [input1][input2]);
+                    for(int i=0;i<10;i++)
+                    {
+                        for(int j=0;j<10;j++)
+                        {
+                            if(Seat_price [input1][input2]==Seat_price [i][j])
+                            {
+                                System.out.print(Seat_price [i][j]);
+                            }
+                            else
+                            {
+                                System.out.print(" ");
+                            }
+                        }
+                        System.out.println();
+                    }
+                }
+	}
+}
